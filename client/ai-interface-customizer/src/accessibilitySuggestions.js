@@ -1,6 +1,6 @@
 const getAccessibilitySuggestions = async (violations) => {
   try {
-    const response = await fetch("/api/getSuggestions", {
+    const response = await fetch("http://localhost:5000/api/getSuggestions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
