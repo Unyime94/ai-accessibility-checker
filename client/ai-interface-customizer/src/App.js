@@ -22,9 +22,21 @@ function App() {
   return (
     <div className="App">
       <URLInputForm onSubmit={handleSubmit} />
-      {html && (
-        <AccessibilityChecker html={html} onViolations={handleViolations} />
-      )}
+
+      <div className="app-container">
+        <header className="app-header">
+          <h1 className="app-title">AI-Powered Accessibility Customizer</h1>
+          <p className="app-subtitle">
+            Analyze and improve accessibility for your website using AI
+          </p>
+        </header>
+        <main className="app-content">
+          <URLInputForm onSubmit={handleSubmit} />
+          {html && (
+            <AccessibilityChecker html={html} onViolations={handleViolations} />
+          )}
+        </main>
+      </div>
     </div>
   );
 }
