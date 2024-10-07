@@ -14,3 +14,5 @@ const getAccessibilitySuggestions = async (violations) => {
     return "Unable to fetch suggestions at this time.";
   }
 };
+
+export default getAccessibilitySuggestions;

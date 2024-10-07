@@ -3,6 +3,7 @@ import "./App.css";
 import URLInputForm from "./form";
 import AccessibilityChecker from "./accessibilityChecker";
 import { getAccessibilitySuggestions } from "./accessibilitySuggestions";
+import SuggestionsPanel from "./suggestionsPanel";
 
 function App() {
   const [html, setHtml] = useState("");
@@ -20,23 +21,20 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <URLInputForm onSubmit={handleSubmit} />
-
-      <div className="app-container">
-        <header className="app-header">
-          <h1 className="app-title">AI-Powered Accessibility Customizer</h1>
-          <p className="app-subtitle">
-            Analyze and improve accessibility for your website using AI
-          </p>
-        </header>
-        <main className="app-content">
-          <URLInputForm onSubmit={handleSubmit} />
-          {html && (
-            <AccessibilityChecker html={html} onViolations={handleViolations} />
-          )}
-        </main>
-      </div>
+    <div className="app-container">
+      <header className="app-header">
+        <h1 className="app-title">AI-Powered Accessibility Customizer</h1>
+        <p className="app-subtitle">
+          Analyze and improve accessibility for your website using AI
+        </p>
+      </header>
+      <main className="app-content">
+        <URLInputForm onSubmit={handleSubmit} />
+        {html && (
+          <AccessibilityChecker html={html} onViolations={handleViolations} />
+        )}
+        {suggestions && <SuggestionsPanel suggestions={suggestions} />}
+      </main>
     </div>
   );
 }
